@@ -1,6 +1,6 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>给你的一封信</title>	    
+		<title>给你的一封信</title>
         <link type="text/css" rel="stylesheet" href="./file/default.css">
 		<script type="text/javascript" src="./file/jquery.min.js"></script>
 		<script type="text/javascript" src="./file/jscex.min.js"></script>
@@ -13,8 +13,40 @@
 		<script type="text/javascript" src="./file/love.js" charset="utf-8"></script>
 	    <style type="text/css">
         </style>
+    <meta name="viewport" id="viewport" content="initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no">
+    <script>
+        ! function () {
+            var viewport = document.getElementById('viewport');
+            var dw = null;
+            var screenChange = document.getElementById('screen-change');
+            function a() {
+                if (document.body.clientHeight > document.body.clientWidth) {
+                    dw = 750;        //页面的高度
+                    screenChange.classList.remove('h');
+                    screenChange.classList.add('w');
+                } else if (document.body.clientHeight < document.body.clientWidth) {
+                    dw = 1334;        //页面的宽度
+                }
+                viewport.setAttribute('content', 'width=' + dw + ', user-scalable=no')
+            }
+            a();
+            window.addEventListener("orientationchange", function () {
+                if (window.orientation == 0) {
+                    screenChange.classList.remove('h');
+                    screenChange.classList.add('w');
+                    dw = 750;        //页面的高度
+                    viewport.setAttribute('content', 'width=' + dw + ', user-scalable=no')
+                } else if (window.orientation == 90) {
+                    screenChange.classList.remove('w');
+                    screenChange.classList.add('h');
+                    dw = 1334;        //页面的宽度
+                    viewport.setAttribute('content', 'width=' + dw + ', user-scalable=no')
+                }
+            }, false);
+        }(window);
+    </script>
 </head>
-    <body>
+    <body id="screen-change" class="h">
         <div id="main">
             <div id="error">本页面采用HTML5编辑，目前您的浏览器无法显示，请换成谷歌(<a href="http://www.google.cn/chrome/intl/zh-CN/landing_chrome.html?hl=zh-CN&brand=CHMI">Chrome</a>)或者火狐(<a href="http://firefox.com.cn/download/">Firefox</a>)浏览器，或者其他游览器的最新版本。</div>
             <audio autoplay="autoplay" height="100" width="100">
@@ -50,9 +82,8 @@
             </div>
             
         </div>
-    
-    <script>
-    </script>
+
+
 
     <script>
     (function(){
