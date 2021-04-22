@@ -1,6 +1,5 @@
 body{margin:0;padding:0;background:#ffe;font-size:14px;font-family:'微软雅黑','宋体',sans-serif;color:#231F20;overflow:auto}
 a {color:#000;font-size:14px;}
-p{color:#ff0000;font-size: 20px;padding-left: 45%}
 #main{width:100%;}
 #wrap{position:relative;margin:0 auto;width:1100px;height:680px;margin-top:10px;}
 #text{width:400px;
@@ -9,9 +8,13 @@ left:100px;
 top:80px;position:absolute;
 }
 #text2{
-    width: 1000px;
+    width: 400px;
+    height:1000px;
     font-size: 16px;
-    margin:auto;
+    margin:0 auto;
+
+    text-indent:2em;
+    text-align: justify;
 }
 #code{display:none;font-size:16px;}
 #clock-box {position:absolute;left:60px;top:550px;font-size:28px;display:none;}
