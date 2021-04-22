@@ -4,14 +4,96 @@
     <link type="text/css" rel="stylesheet" href="./file/default2.css">
     <meta charset="UTF-8">
     <title>黑夜我为你撑起光明</title>
+    <META http-equiv="X-UA-Compatible" content="IE=edge"></META>
+    <META http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <script>
+        var BW =  window.innerWidth; //canvas width
+        var BH = window.innerHeight; //canvas height
+
+        var MAX_STAR_SIZE = 3;
+        var MAX_STAR_SPEED = 1;
+        var STAR_COUNT = 120;
+        var BGCOLOR = "black";
+        var ctx;
+        var stars = [];
+
+        function rndf(n){
+            return Math.floor(Math.random()*n);
+        }
+
+        function rndc(n){
+            return Math.ceil(Math.random()*n);
+        }
+
+        function Star(){
+            this.reset = function(){
+                this.x = 0;
+                this.y = rndf(BH);
+                this.size = rndc(MAX_STAR_SIZE);
+                this.vx = MAX_STAR_SPEED*this.size/MAX_STAR_SIZE;
+                this.vy = 0;
+                this.color = "rgba("+rndf(255)+", "+rndf(255)+", "+rndf(255)+", 0.5)";
+            };
+
+            this.reset();
+            this.x = rndf(BW);
+        }
+        function render(){
+            ctx.globalCompositeOperation = "source-over";
+            ctx.fillStyle = "rgba(0, 0, 0, 0.3)";
+            ctx.fillRect(0, 0, BW, BH);
+            ctx.globalCompositeOperation = "lighter";
+            for(var i = 0; i < STAR_COUNT; ++i){
+                var p = stars[i];
+                ctx.beginPath();
+                var gradient = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.size);
+                gradient.addColorStop(0, "white");
+                gradient.addColorStop(0.4, "white");
+                gradient.addColorStop(0.4, p.color);
+                gradient.addColorStop(1, "black");
+                ctx.fillStyle = gradient;
+                ctx.arc(p.x, p.y, p.size, Math.PI*2, false);
+                ctx.fill();
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if(p.x<=0 || p.x>=BW || p.y<=0 || p.y>=BH){
+                    p.reset();
+                }
+            }
+        }
+        function init(){
+            if (!window.console){
+                console = {log:function(){},debug:function(){}};
+            }
+//create canvas
+            var cv = document.createElement('canvas');
+            cv.width = BW;
+            cv.height = BH;
+            cv.style.background = BGCOLOR;
+            document.body.appendChild(cv);
+            ctx = cv.getContext("2d");
+//create all stars
+            for(var i=0;i<STAR_COUNT;++i){
+                var s = new Star();
+                stars.push(s);
+            }
+            setInterval(render, 33);
+        };
+    </script>
 </head>
-<body>
+<body onload="init()">
 <audio autoplay="autoplay" height="100" width="100">
     <source src="wan.mp3" type="audio/mp3" />
     <embed height="100" width="100" src="wan.mp3" />
 </audio>
 <div>
-    晚安~宝贝，醒来你将看到我为你塑造的全新世界！
+    <h1>晚安~宝贝!<br>好梦香甜~当你醒来时<br>你将看到我为你塑造的全新世界！</h1>
+    <p>我想陪你一起看日出，看日落</p>
+    <p>我想陪你走遍祖国大好河山，行遍世界的各个角落</p>
+    <p>我想每天醒来第一眼，睡眼朦胧中，就能看到那个可爱的你</p>
+    <p>我想和你共度此生，只愿静候美好年华</p>
+
 </div>
 </body>
 </html>
