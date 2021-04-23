@@ -12,6 +12,6 @@ body{margin:0;padding:0;
 h1,p{
     animation: myfirstani 6s infinite;
 }
-div{margin:auto auto;font-size: 28px;width: 100%;position: absolute;height: 100%;}
+div{margin:36% auto;font-size: 28px;width: 100%;position: absolute;height: 100%;}
 h1{margin: 100px 0px 50px 0px }
 p{margin: 10px 10px;line-height: 70px}
