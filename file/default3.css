@@ -1,0 +1,26 @@
+body{
+    background-color: darksalmon;
+}
+#text{
+    color: red;
+    font-size: 20px;
+    margin:0 auto;
+    text-align:center;
+    font-family: "Microsoft Yahei";
+    display:inline-block;
+}
+.frame{
+    width: 800px;
+    margin:0 auto;
+
+}
+#divmg{
+    text-align: center;
+}
+#mg{
+    /*text-align: center;*/
+    margin:0   auto;
+}
+p{
+    line-height: 30px;
+}

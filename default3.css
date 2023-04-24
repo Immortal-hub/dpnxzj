@@ -1,0 +1,45 @@
+body{
+    background-color: darksalmon;
+    margin: 0 auto;
+}
+.text{
+    color: rgb(239, 240, 173);
+    font-size: 20px;
+    margin:0 auto;
+    text-align:justify;
+    text-indent:2em;
+    font-family: "Microsoft Yahei";
+    /* display:inline-block; */
+}
+.text0{
+    color: rgb(239, 240, 173);
+    font-size: 20px;
+}
+.textend{
+    color: rgb(239, 240, 173);
+    font-size: 20px;
+    text-align: right;
+}
+.frame{
+    width: 99%;
+    margin:0 auto;
+
+}
+#divmg{
+
+    text-align: center;
+}
+#mg,#mg2{
+    width: 200px;
+    height: 200px;
+    /*text-align: center;*/
+    margin:0   auto;
+}
+#mg2{
+    width: 180Px;
+    height: 180px;
+    margin-left: -105px;
+}
+p{
+    line-height: 30px;
+}
