@@ -101,10 +101,16 @@
     </script>
 </head>
 <body onload="init()" id="body1">
-<audio autoplay="autoplay" height="100" width="100">
-    <source src="wan.mp3" type="audio/mp3" />
-    <embed height="100" width="100" src="wan.mp3" />
+<audio autoplay="autopaly" loop="loop" id="audios">
+    <source src="./musci/wan.mp3" type="audio/mp3" />
 </audio>
+
+<script>
+    document.addEventListener('click', function() {
+        document.getElementById('audios').play()
+    })
+
+</script>
 <div id = "divmg">
     <a href="index.html"><img id = "mg" src="./picture/1.png"></a>
     <a href="index.html"><img id = "mg2" src="./picture/2.png"></a>
